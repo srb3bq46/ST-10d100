@@ -12,8 +12,7 @@ jQuery(async () => {
         chatMetadata,
         saveMetadata,
     } = context;
-
-    eventSource.on(event_types.MESSAGE_SENT, async () => {
+    const injectMessage = async () => {
         if (!context.chat[context.chat.length - 1].is_user){
             console.debug("not rolling - not a user message");
             return;
@@ -25,6 +24,8 @@ jQuery(async () => {
             MODULE_NAME, INJECTED_MESSAGE, extension_prompt_types.IN_CHAT, 0, false, extension_prompt_roles.SYSTEM, null
         ); // key, value, position, depth, use_in_worldingo_scan, role, filter_func
         await saveMetadata();
-    });
+    }
+    eventSource.on(event_types.MESSAGE_SENT, injectMessage);
+    eventSource.on(event_types.MESSAGE_SWIPED, injectMessage);
 });
 
