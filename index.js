@@ -13,10 +13,10 @@ jQuery(async () => {
         saveMetadata,
     } = context;
     const injectMessage = async () => {
-        if (!context.chat[context.chat.length - 1].is_user){
-            console.debug("not rolling - not a user message");
+        /*if (!context.chat[context.chat.length - 1].is_user){
+            console.log("not rolling - not a user message");
             return;
-        }
+        }*/
         const rolls = Array.from({ length: 10 }, () => Math.floor(Math.random() * 100) + 1);
         const INJECTED_MESSAGE = `Random d100 rolls you may use: ${rolls.join(', ')}. Use in left-to-right order on events that need RNG, ignore unused rolls.`;
         console.log(`[SYSTEM: ${INJECTED_MESSAGE}]`);
@@ -26,6 +26,7 @@ jQuery(async () => {
         await saveMetadata();
     }
     eventSource.on(event_types.MESSAGE_SENT, injectMessage);
-    eventSource.on(event_types.GROUP_UPDATED, injectMessage);
+    eventSource.on(event_types.MESSAGE_SWIPED, injectMessage);
+    eventSource.on(event_types.CHAT_UPDATED, injectMessage);
 });
 
