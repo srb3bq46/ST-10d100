@@ -19,7 +19,7 @@ jQuery(async () => {
             return;
         }
         const rolls = Array.from({ length: 10 }, () => Math.floor(Math.random() * 100) + 1);
-        const INJECTED_MESSAGE = `Random d100 rolls: ${rolls.join(', ')}. Use in left-to-right order on events that need RNG, ignore unused rolls.`;
+        const INJECTED_MESSAGE = `Random d100 rolls you may use: ${rolls.join(', ')}. Use in left-to-right order on events that need RNG, ignore unused rolls.`;
         console.log(`[SYSTEM: ${INJECTED_MESSAGE}]`);
         context.setExtensionPrompt(
             MODULE_NAME, INJECTED_MESSAGE, extension_prompt_types.IN_CHAT, 0, false, extension_prompt_roles.SYSTEM, null
