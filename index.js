@@ -18,7 +18,7 @@ jQuery(async () => {
             return;
         }*/
         const rolls = Array.from({ length: 10 }, () => Math.floor(Math.random() * 100) + 1);
-        const INJECTED_MESSAGE = `<dice>\nRandom d100 rolls you may use: ${rolls.join(', ')}.\nIf you see this, use these rolls instead of the code tool.\nUse as many rolls as needed, in left-to-right order, and discard the rest.\nSometimes, no events require randomness and the dice can be ignored. Never fake dice rolls.`;
+        const INJECTED_MESSAGE = `<dice>\nRandom d100 rolls you may use: ${rolls.join(', ')}.\nIf you see this, use these rolls instead of the code tool. The user does not see this.\nUse each roll at most once, in strict left-to-right order, then discard unused results.\nSometimes, no events require randomness and the dice can be ignored. Never fake dice rolls.</dice>`;
         console.log(`[SYSTEM: ${INJECTED_MESSAGE}]`);
         context.setExtensionPrompt(
             MODULE_NAME, INJECTED_MESSAGE, extension_prompt_types.IN_CHAT, 0, false, extension_prompt_roles.SYSTEM, null
