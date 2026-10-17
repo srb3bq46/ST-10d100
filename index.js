@@ -22,7 +22,7 @@ jQuery(async () => {
         const INJECTED_MESSAGE = `Random d100 rolls: ${rolls.join(', ')}. Use in left-to-right order on events that need RNG, ignore unused rolls.`;
         console.log(`[SYSTEM: ${INJECTED_MESSAGE}]`);
         context.setExtensionPrompt(
-            MODULE_NAME, INJECTED_MESSAGE, extension_prompt_types.IN_CHAT, 0, false, extension_prompt_roles.USER, null
+            MODULE_NAME, INJECTED_MESSAGE, extension_prompt_types.IN_CHAT, 0, false, extension_prompt_roles.SYSTEM, null
         ); // key, value, position, depth, use_in_worldingo_scan, role, filter_func
         await saveMetadata();
     });
