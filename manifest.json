@@ -1,0 +1,11 @@
+{
+  "display_name": "Automated d100 roller",
+  "loading_order": 10,
+  "requires": [],
+  "optional": [],
+  "js": "index.js",
+  "css": "",
+  "author": "You",
+  "version": "1.0.0",
+  "homePage": "https://github.com/justheuristic/junk"
+}
