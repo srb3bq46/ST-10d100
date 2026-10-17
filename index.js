@@ -25,8 +25,8 @@ jQuery(async () => {
         ); // key, value, position, depth, use_in_worldingo_scan, role, filter_func
         await saveMetadata();
     }
+    eventSource.on(event_types.CHAT_CHANGED, injectMessage);
     eventSource.on(event_types.MESSAGE_SENT, injectMessage);
     eventSource.on(event_types.MESSAGE_SWIPED, injectMessage);
-    eventSource.on(event_types.CHAT_UPDATED, injectMessage);
 });
 
