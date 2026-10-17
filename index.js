@@ -26,6 +26,5 @@ jQuery(async () => {
         await saveMetadata();
     }
     eventSource.on(event_types.MESSAGE_SENT, injectMessage);
-    eventSource.on(event_types.CHAT_LOADED, injectMessage);
 });
 
